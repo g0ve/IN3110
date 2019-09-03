@@ -20,7 +20,7 @@ function track() {
   fi
 
   #Runs if there is more then 0 arguments
-
+  
   case "$command" in
     "start")
     if [[ $label == "" ]]; then
