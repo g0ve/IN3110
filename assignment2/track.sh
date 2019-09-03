@@ -74,7 +74,7 @@ function track() {
 
     *)
 
-    echo "$(<README.txt)"
+    echo "$(<README.md)"
 
   esac
 
