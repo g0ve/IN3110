@@ -1,4 +1,4 @@
-How to use track. You need to write 'track [command]'  
+How to use track. You need to write 'track [command]'
   -track start [label]: Start task with [label].  
   -track stop: Stops current task, if active.  
   -track status: Shows label of active task.  
