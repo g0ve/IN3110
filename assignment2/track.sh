@@ -1,16 +1,7 @@
 #!/bin/bash -x
 
 function track() {
-  #Get file, and check if it exists. If not end program.
-  logfile="log.txt"
-  if [[ -f $logfile ]]; then
-    echo "File exists and is a regular file."
-  else
-    echo "Couldnt find file. Make sure it exixts, and try again"
-    exit
-  fi
-
-  #Runs if there is more then 0 arguments
+  logfile="LOGFILE.txt"
   command=$1
   label=$2
   lastLineInLogfile=$(tail -1 "$logfile")
@@ -19,6 +10,16 @@ function track() {
   endDate=""
   declare -i diffrence
   taskCounter=1
+
+  #Get file, and check if it exists. If not end program.
+  if [[ -f $logfile ]]; then
+    echo "File exists and is a regular file."
+  else
+    echo "Didnt find file...File made."
+    touch $logfile
+  fi
+
+  #Runs if there is more then 0 arguments
 
   case "$command" in
     "start")
