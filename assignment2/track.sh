@@ -15,6 +15,11 @@ function track() {
   label=$2
   lastLineInLogfile=$(tail -1 "$logfile")
 
+  startDate=""
+  endDate=""
+  declare -i diffrence
+  taskCounter=1
+
   case "$command" in
     "start")
     if [[ $label == "" ]]; then
@@ -38,17 +43,13 @@ function track() {
 
     "status")
     if [[ $lastLineInLogfile == LABEL* ]]; then
-      echo "STATUS ${lastLineInLogfile:6}"  | tee -a $logfile
+      echo "STATUS ${lastLineInLogfile:6}"  #| tee -a $logfile
     else
       echo "No active task"
     fi
     ;;
 
     "log")
-    startDate=""
-    endDate=""
-    declare -i diffrence
-    taskCounter=1
 
     while read lines; do
       if [[ $lines == START* ]]; then
@@ -72,11 +73,8 @@ function track() {
     ;;
 
     *)
-    echo "How to use track. You need to write 'track [command]'"
-    echo "  -track start [label]: Start task with [label]."
-    echo "  -track stop: Stops current task, if active."
-    echo "  -track status: Shows label of active task."
-    echo "  -track log: Shows time spent on each task."
+
+    echo "$(<README.txt)"
 
   esac
 
