@@ -21,7 +21,7 @@ function track() {
       echo "Function track start needs 2 parameters: -track start [label]"
     elif [[ $lastLineInLogfile == "" || $lastLineInLogfile == END* ]]; then
       echo "START $(date)" | tee -a $logfile
-      echo "LABEL ${label}" | tee -a $logfile
+      echo "LABEL This is: ${label}" | tee -a $logfile
     else
       echo "Another task is runnig. Stop it first with: track stop."
     fi
