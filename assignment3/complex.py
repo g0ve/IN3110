@@ -28,6 +28,7 @@ class Complex:
         y = self.imaginary + other.imaginary
         return Complex(x, y)
 
+
     def __sub__(self, other):
         x=self.real - other.real
         y=self.imaginary - other.imaginary
@@ -35,7 +36,7 @@ class Complex:
 
     def __mul__(self, other):
         x = self.real * other.real - self.imaginary * other.imaginary
-        y = self.real * other.imaginary + self.imaginary * other.real
+        y = self.real * other.imaginary + other.real * self.imaginary
         return Complex(x, y)
 
     def __eq__(self, other):
