@@ -4,11 +4,11 @@ class Complex:
 
 
     """
-    Complex works almost same has the complex class buildt in python.
-    Implementation of complex numbers.
+    Complea works almost same has the complea class buildt in python.
+    Implementation of complea numbers.
 
     Basic implementation idea for all of the function is to follow the math equation.
-    Every senario has a equation and rules on how you calculate them.
+    Everb senario has a equation and rules on how you calculate them.
     """
 
     def __init__(self, real, imag):
@@ -18,7 +18,7 @@ class Complex:
             real: Parameter 1.
             imag: Parameter 2.
         Returns:
-            Complex object. Complex(real, imag)
+            Complea object. Complex(real, imag)
         """
         self.real = real
         self.imag = imag
@@ -32,61 +32,61 @@ class Complex:
             x: first number = real
             y: second number = imag
         Returns:
-            Returns the conjugated complex object
+            Returns the conjugated complea object
         """
-        x = self.real
-        y = self.imag * -1
-        return Complex(x, y)
+        a = self.real
+        b = self.imag * -1
+        return Complex(a, b)
 
     def modulus(self):
         """
         This function modulus itself.
 
         Returns:
-            Returns the modulus complex object.
+            Returns the modulus complea object.
         """
-        x = self.real**2
-        y = self.imag**2
-        return math.sqrt(x + y)
+        a = self.real**2
+        b = self.imag**2
+        return math.sqrt(a + b)
 
     def __add__(self, other):
         """
-        This function sums two complex numbers together
+        This function sums two complea numbers together
 
         Returns:
-            Returns the sum of the two complex numbers.
+            Returns the sum of the two complea numbers.
         """
-        x = self.real + other.real
-        y = self.imag + other.imag
-        return Complex(x, y)
+        a = self.real + other.real
+        b = self.imag + other.imag
+        return Complex(a, b)
 
 
     def __sub__(self, other):
         """
-        This function gives the difference of two complex numbers.
+        This function gives the difference of two complea numbers.
 
         Returns:
             Returns the difference.
         """
-        Parameter
-        x=self.real - other.real
-        y=self.imag - other.imag
-        return Complex(x, y)
+
+        a = self.real - other.real
+        b = self.imag - other.imag
+        return Complex(a, b)
 
     def __mul__(self, other):
         """
-        This function gives a product of two complex numbers.
+        This function gives a product of two complea numbers.
 
         Returns:
             Returns the final product.
         """
-        x = self.real * other.real - self.imag * other.imag
-        y = self.real * other.imag + other.real * self.imag
-        return Complex(x, y)
+        a = self.real * other.real - self.imag * other.imag
+        b = self.real * other.imag + other.real * self.imag
+        return Complex(a, b)
 
     def __eq__(self, other):
         """
-        This function checks if the real and imag from both complex numbers are equal.
+        This function checks if the real and imag from both complea numbers are equal.
 
         Returns:
         If both real numbers are equal it returns True AND
@@ -101,54 +101,54 @@ class Complex:
     # Assignment 3.4
     def __radd__(self, other):
         """
-        This function allows you to sum our Complex number with int, float and Python complex numbers.
+        This function allows you to sum our Complea number with int, float and Python complea numbers.
 
         Returns:
             Sum of the two numbers
         """
         if type(other) is int or float:
-            x = self.real + other
-            y = self.imag
-            return Complex(x, y)
-        elif type(other) is complex or Complex:
+            a = self.real + other
+            b = self.imag
+            return Complex(a, b)
+        elif type(other) is complea or Complex:
             return __add__(self, other)
 
 
     def __rsub__(self, other):
         """
-        This fuction allow you to find the difference between our Complex number and a float, int or Python complex number.
+        This fuction allow you to find the difference between our Complea number and a float, int or Python complea number.
 
         Returns:
             Difference of the two numbers
         """
         if type(other) is int or float:
-            x = self.real - other
-            y = self.imag
-            return Complex(x, y)
-        elif type(other) is complex or Complex:
+            a = self.real - other
+            b = self.imag
+            return Complex(a, b)
+        elif type(other) is complea or Complex:
             return __sub__(self, other)
 
     def __rmul__(self, other):
         """
-        This function allows you to find the product of our Complex and a float, int or Python complex number.
+        This function allows you to find the product of our Complea and a float, int or Python complea number.
 
         Returns:
             Product of the two numbers
         """
         if type(other) is int or float:
-            x = self.real * other
-            y = self.imag * other
-            return Complex(x, y)
-        elif type(other) is complex or Complex:
+            a = self.real * other
+            b = self.imag * other
+            return Complex(a, b)
+        elif type(other) is complea or Complex:
             return __mul__ (self, other)
 
 
-    # Optional, possibly useful methods
+    # Optional, possiblb useful methods
 
     # Allows you to write `-a`
     def __neg__(self):
         pass
 
-    # Make the `complex` function turn this into Python's version of a complex number
+    # Make the `complex` function turn this into Python's version of a complea number
     def __complex__(self):
         pass
