@@ -2,6 +2,16 @@ import math
 from complex import Complex
 
 """
+For this test file. I choose to make a function for every test. (Got this tip from a group teacher)
+Im not adding a comment to all of the function, but i added a comment for each type of test.
+And seperate them after what function in complex they tests.
+
+Short version: each test part test a function in complex,
+and each part has function testing with diffrent kind of numbers.
+"""
+
+
+"""
 Tests if __con__ works as it should
 """
 def test_con_two_pos():
@@ -46,37 +56,37 @@ Tests if __add__ works as it should
 def test_add_pos():
     x = Complex(1, 9)
     y = Complex(7, 5)
-    assert (x + y) == Complex(8, 14) # 8+14i
+    assert (x + y) == Complex(8, 14)
 
 def test_add_0():
     x = Complex(0, 0)
     y = Complex(0, 0)
-    assert (x + y) == Complex(0, 0) # 0
+    assert (x + y) == Complex(0, 0)
 
 def test_add_con():
     x = Complex(9, 0)
     y = Complex(20, 0)
-    assert (x + y) == Complex(29, 0) # 29
+    assert (x + y) == Complex(29, 0)
 
 def test_add_i():
     x = Complex(0, 0)
     y = Complex(0, 1)
-    assert (x + y) == Complex(0, 1) # i
+    assert (x + y) == Complex(0, 1)
 
 def test_add_imag():
     x = Complex(0, 13)
     y = Complex(0, 1)
-    assert (x + y) == Complex(0, 14) # 14i
+    assert (x + y) == Complex(0, 14)
 
 def test_add_neg_i():
     x = Complex(0, 0)
     y = Complex(0, -1)
-    assert (x + y) == Complex(0, -1) # -i
+    assert (x + y) == Complex(0, -1)
 
 def test_add_neg_imag():
     x = Complex(0, -14)
     y = Complex(0, -1)
-    assert (x + y) == Complex(0, -15) # -15i
+    assert (x + y) == Complex(0, -15)
 
 """
 Tests if __sub__ works as it should
@@ -84,37 +94,37 @@ Tests if __sub__ works as it should
 def test_sub():
     x = Complex(1, 9)
     y = Complex(7, 5)
-    assert (x - y) == Complex(-6, 4) # 8-14i
+    assert (x - y) == Complex(-6, 4)
 
 def test_sub_0():
     x = Complex(0, 0)
     y = Complex(0, 0)
-    assert (x - y) == Complex(0, 0) # 0
+    assert (x - y) == Complex(0, 0)
 
 def test_sub_const():
     x = Complex(20, 0)
     y = Complex(9, 0)
-    assert (x - y) == Complex(11, 0) # 11
+    assert (x - y) == Complex(11, 0)
 
 def test_sub_i():
     x = Complex(0, 11)
     y = Complex(0, 10)
-    assert (x - y) == Complex(0, 1) # i
+    assert (x - y) == Complex(0, 1)
 
 def test_sub_imag():
     x = Complex(0, 13)
     y = Complex(0, 1)
-    assert (x - y) == Complex(0, 12) # 12i
+    assert (x - y) == Complex(0, 12)
 
 def test_sub_neg_i():
     x = Complex(0, -1)
     y = Complex(0, 0)
-    assert (x - y) == Complex(0, -1) # -i
+    assert (x - y) == Complex(0, -1)
 
 def test_sub_neg_imag():
     x = Complex(0, -14)
     y = Complex(0, -1)
-    assert (x - y) == Complex(0, -13) # -13i
+    assert (x - y) == Complex(0, -13)
 
 """
 Tests if __mul__ works as it should
