@@ -1,10 +1,8 @@
-#!/usr/bin/env python
-
-from complex import Complex
 import math
+from complex import Complex
 
 """
-Tests if __con__ works has it should
+Tests if __con__ works as it should
 """
 def test_con_two_pos():
     x = Complex(1, 2)
@@ -22,12 +20,9 @@ def test_con_0_one_pos():
     x = Complex(0, 4)
     assert x.conjugate() == Complex(0, -4)
 
-def test_con_one_pos_0():
-    x = Complex(10, 0)
-    assert x.conjugate() == Complex(10, 0)
 
 """
-Tests if __mod__ works has it should
+Tests if __mod__ works as it should
 """
 def test_mod_two_pos():
     x = Complex(1, 7)
@@ -46,7 +41,7 @@ def test_mod_two_neg():
     assert x.modulus() == math.sqrt(52)
 
 """
-Tests if __add__ works has it should
+Tests if __add__ works as it should
 """
 def test_add_pos():
     x = Complex(1, 9)
@@ -84,7 +79,7 @@ def test_add_neg_imag():
     assert (x + y) == Complex(0, -15) # -15i
 
 """
-Tests if __sub__ works has it should
+Tests if __sub__ works as it should
 """
 def test_sub():
     x = Complex(1, 9)
@@ -122,7 +117,7 @@ def test_sub_neg_imag():
     assert (x - y) == Complex(0, -13) # -13i
 
 """
-Tests if __mul__ works has it should
+Tests if __mul__ works as it should
 """
 def test_mul_all_pos():
     x = Complex(4, 6)
@@ -145,7 +140,7 @@ def test_mul_0():
     assert (x * y) == Complex(0, 0)
 
 """
-Tests if __eq__ works has it should
+Tests if __eq__ works as it should
 """
 def test_eq_all_pos():
     x = Complex(1, 2)
@@ -174,3 +169,77 @@ def test_eq_other_0():
 def test_eq_0():
     x = Complex(0, 0)
     assert x == Complex(0, 0)
+
+"""
+Tests if __radd__ works as it should
+"""
+def test_radd_int():
+    x = Complex(2, 4)
+    y = 3
+    assert x + y == Complex(5, 4)
+
+def test_radd_float():
+    x = Complex(2, 3)
+    y = 2.3
+    assert x + y == Complex(4.3, 3)
+
+def test_radd_complP():
+    x = Complex(2, 3)
+    y = complex(2, 2)
+    assert x + y == Complex(4, 5)
+
+def test_radd_Compl():
+    x = Complex(2, 3)
+    y = Complex(2, 4)
+    assert x + y == Complex(4, 7)
+
+"""
+Tests if __rsub__ works as it should
+"""
+def test_rsub_int():
+    x = Complex(3, 4)
+    y = 2
+    assert x - y == Complex(1, 4)
+
+def test_rsub_mul_int():
+    x = 1 * Complex(3, 4)
+    y = 2
+    assert x - y == Complex(1, 4)
+
+def test_rsub_float():
+    x = Complex(4, 3)
+    y = 2.5
+    assert x - y == Complex(1.5, 3)
+
+def test_rsub_complP():
+    x = Complex(4, 3)
+    y = complex(2, 2)
+    assert x - y == Complex(2, 1)
+
+def test_rsub_Compl():
+    x = Complex(2, 4)
+    y = Complex(2, 3)
+    assert x - y == Complex(0, 1)
+
+"""
+Tests if __rmul__ works as it should
+"""
+def test_rmul_int():
+    x = Complex(3, 4)
+    y = 2
+    assert x * y == Complex(6, 8)
+
+def test_rmul_float():
+    x = Complex(4, 3)
+    y = 2.5
+    assert x * y == Complex(10, 7.5)
+
+def test_rmul_complP():
+    x = Complex(4, 6)
+    y = complex(2, 1)
+    assert x * y == Complex(2, 16)
+
+def test_rmul_Compl():
+    x = 2 * Complex(2, 3)
+    y = complex(2, 1)
+    assert x * y == Complex(2, 16)
