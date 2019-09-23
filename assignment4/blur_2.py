@@ -2,7 +2,6 @@ import numpy as np
 import cv2
 import os.path
 import sys
-import time
 
 # filename = "hellstrom.jpg"
 
@@ -44,7 +43,6 @@ def blur_image(src, dst):
                     + src[x+1, y+1, z]) / 9
     return dst
 
-start = time.time()
 
 if len(sys.argv) == 2:
     filename = sys.argv[1]
@@ -71,6 +69,3 @@ if len(sys.argv) == 2:
         cv2.destroyAllWindows()
     else:
         print("Cant find file/image. Make sure file/image is in your directory")
-
-print (time.time()- start)
-
