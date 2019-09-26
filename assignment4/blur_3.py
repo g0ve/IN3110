@@ -1,14 +1,12 @@
 import numpy as np
+from numba import jit
 import cv2
 import os.path
 import sys
 import time
 
 # filename = "hellstrom.jpg"
-
-def test():
-    print("Dete er en test")
-
+@jit
 def blur_image(src, dst):
     (h, w, c) = src.shape
     #Skifte på imagene.
@@ -48,7 +46,6 @@ def blur_image(src, dst):
                     + src[x+1, y+1, z]) / 9
     return dst
 
-
 def main(inputFile, outputFile):
     start = time.time()
 
@@ -83,3 +80,5 @@ if __name__ == '__main__':
         main(filename, "blurred_image.jpg")
     else:
         print("Cant find file/image. Make sure file/image is in your directory")
+
+
