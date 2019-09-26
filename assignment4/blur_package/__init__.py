@@ -48,13 +48,13 @@ def blur(src, dst):
 
 def blur_image(input_filename, output_filename=None):
     start = time.time()
+    file_exists = False
+    
     if len(sys.argv) == 2:
         filename = sys.argv[1]
         file_exists = os.path.exists(filename)
     if file_exists:
         src = cv2.imread(inputFile)
-
-        src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
 
         src = src.astype("uint32")
         dst = src.copy()
