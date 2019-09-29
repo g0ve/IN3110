@@ -6,9 +6,6 @@ import time
 
 # filename = "hellstrom.jpg"
 
-def test():
-    print("Dete er en test")
-
 def blur_image(src, dst):
     (h, w, c) = src.shape
     #Skifte på imagene.
@@ -65,6 +62,7 @@ def main(inputFile, outputFile):
         # print(dst.shape)
         dst = blur_image(src, dst)
         dst = dst.astype ("uint8")
+
         cv2.imwrite (outputFile, dst)
         cv2.imshow('image', dst)
         cv2.waitKey(1000)
