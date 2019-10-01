@@ -49,7 +49,6 @@ def blur(src, dst):
 def blur_image(input_filename, output_filename=None):
     start = time.time()
     file_exists = False
-    
     if len(sys.argv) == 2:
         filename = sys.argv[1]
         file_exists = os.path.exists(filename)

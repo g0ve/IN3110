@@ -7,8 +7,6 @@ import time
 # filename = "hellstrom.jpg"
 
 def blur_image(src, dst):
-    # print(s)
-
     (h, w, c) = src.shape
 
     dst = np.pad(src, 1, mode="edge")[:,:,1:4]
@@ -36,7 +34,6 @@ def main(inputFile, outputFile):
         src = cv2.imread(inputFile)
         # print(type(src))
         src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
-        # src = cv2.cvtColor(src, cv2.COLOR_BGR2RGB)
         cv2.imshow('Unblurred image', src)
         # src = np.asarray(src, dtype=np.uint32)
 
@@ -49,12 +46,10 @@ def main(inputFile, outputFile):
         #
         # dst = src[:,:,:]
         # src2 = src2/9
-        # dst = src
-        # # a = np.sum(src2)/9
-        # # dst[dst[0:1,0:3], 2] = a
+        # a = np.sum(src2)/9
+        # dst[dst[0:1,0:3], 2]
         # dst2 = dst[0:1,0:3]
         # # print("Hei")
-        # print(sum(src[0:1,0:3])/9)
 
         # print(dst2)
         # print(a)
@@ -63,6 +58,7 @@ def main(inputFile, outputFile):
 
         dst = blur_image(src, dst)
         dst = dst.astype ("uint8")
+        print(dst[:,:,1])
 
         cv2.imwrite ("blurred_image.jpg ", dst)
         cv2.imshow('image', dst)
