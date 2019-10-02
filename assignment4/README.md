@@ -60,4 +60,4 @@ You can run the the program with:
 $ python blur_faces.py
 ```
 ---
-<sub>Never used Numpy before like me? Highly highly recommend to read this: https://www.labri.fr/perso/nrougier/from-python-to-numpy. Helped me a lot to understand how numpy works and smart ways to use it.</sub>
+<sup><sub>Never used Numpy before like me? Highly highly recommend to read this: https://www.labri.fr/perso/nrougier/from-python-to-numpy. Helped me a lot to understand how numpy works and smart ways to use it.</sub></sup>
