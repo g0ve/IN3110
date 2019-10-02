@@ -16,10 +16,10 @@ args = parser.parse_args()
 if args.purePython:
     blur_1(args.input, args.output)
 
-if args.numpy:
+elif args.numpy:
     blur_2(args.input, args.output)
 
-if args.numba:
+elif args.numba:
     blur_3(args.input, args.output)
 
 else:

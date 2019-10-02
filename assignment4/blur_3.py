@@ -1,15 +1,28 @@
 import numpy as np
-from numba import jit
 import cv2
 import os.path
 import sys
 import time
+from numba import jit
+
+import warnings
+warnings.filterwarnings('ignore')
 
 # filename = "hellstrom.jpg"
 @jit
 def blur_image(src, dst):
+    """
+    This function blurs a given image. This is done by looping trought the image
+    array, and find the average value of all the neighbors to the chossen element.
+
+    Paramters:
+        src - This is the source image. This is the image we want to blur.
+        dst - This is a copy of our source image. In this image array is
+                we do changes on.
+    Return:
+        Returns the processed image dst. 'dst' should be a blurred image of src.
+    """
     (h, w, c) = src.shape
-    #Skifte på imagene.
 
     for x in range(h-1):
         for y in range(w-1):
@@ -44,41 +57,50 @@ def blur_image(src, dst):
                     + src[x-1, y+1, z]
                     + src[x+1, y, z]
                     + src[x+1, y+1, z]) / 9
+
     return dst
 
 def main(inputFile, outputFile):
-    start = time.time()
+    """
+    This is the main function. This function reads an image, call blur_image function.
+    And then opens the blurred image with CV2. But before that it resize the source
+    image and changes the type to uint32. After the image is processed it changes
+    dst type to uint8.
 
-    file_exists = os.path.exists(inputFile)
-    if file_exists:
-        src = cv2.imread(inputFile)
-        # print(src.shape)
-        # print(type(src))
-        src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
-        # src = cv2.cvtColor(src, cv2.COLOR_BGR2RGB)
-        cv2.imshow('Unblurred image', src)
-        src = src.astype("uint32")
-        dst = src.copy()
-        # print(dst.shape)
-        dst = blur_image(src, dst)
-        dst = dst.astype ("uint8")
-        cv2.imwrite (outputFile, dst)
-        cv2.imshow('image', dst)
-        cv2.waitKey(1000)
-        cv2.destroyAllWindows()
-    else:
-        print("Cant find file/image. Make sure file/image is in your directory")
+    This also track the time used by the program.
 
-    print ('{:.3f} sec'.format(time.time()- start))
+    Paramters:
+        inputFile - This is the source image you want to blur
+        outputFile - This is the filename where you want to save the processed image.
+
+    """
+    src = cv2.imread(inputFile)
+    src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
+
+    cv2.imshow('Unblurred image', src)
+    src = src.astype("uint32")
+    dst = src.copy()
+
+    dst = blur_image(src, dst)
+
+    dst = dst.astype ("uint8")
+
+    cv2.imwrite (outputFile, dst)
+    cv2.imshow('image', dst)
+    cv2.waitKey(1000)
+    cv2.destroyAllWindows()
+
+
 
 if __name__ == '__main__':
+    start = time.time()
     print("__main__ is running")
     if len(sys.argv) == 2:
         filename = sys.argv[1]
         file_exists = os.path.exists(filename)
+
     if file_exists:
         main(filename, "blurred_image.jpg")
     else:
         print("Cant find file/image. Make sure file/image is in your directory")
-
-
+    print ('{:.3f} sec'.format(time.time()- start))
