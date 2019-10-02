@@ -5,8 +5,6 @@ import sys
 import time
 from numba import jit
 
-import warnings
-warnings.filterwarnings('ignore')
 
 # filename = "hellstrom.jpg"
 @jit

@@ -1,9 +1,7 @@
 import numpy as np
 from numba import jit
 import cv2
-import blur_package
-
-blur = blur_package.blur
+from blur_package import blur
 
 def blur_sub_section(sub_sec):
 
@@ -15,8 +13,7 @@ def blur_sub_section(sub_sec):
 
 
 
-src = cv2.imread("hellstrom.jpg")
-# src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
+src = cv2.imread("beatles.jpg")
 dst = src.copy()
 
 face_cascade = cv2.CascadeClassifier ("haarcascade_frontalface_default.xml")

@@ -1,8 +1,7 @@
 import numpy as np
-import blur_package
 import cv2
 
-blur = blur_package.blur
+from blur_package import blur
 
 
 
