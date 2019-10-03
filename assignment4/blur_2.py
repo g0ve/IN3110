@@ -21,7 +21,7 @@ def blur_image(src, dst):
         dst - This is a copy of our source image. In this image array is
                 we do changes on.
     Return:
-        Returns the processed image dst. 'dst' should be a blurred image of src.
+        Returns the processed image dst. 'dst' should be a blurred image of src. Type: ndarray
     """
     src = np.pad(src, 1, mode="edge")[:,:,1:4]
 

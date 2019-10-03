@@ -19,6 +19,7 @@ def blur_image_python(src, dst):
                 we do changes on.
     Return:
         Returns the processed image dst. 'dst' should be a blurred image of src.
+        Type: ndarray
     """
     (h, w, c) = src.shape
 

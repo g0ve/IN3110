@@ -68,7 +68,7 @@ def blur_image(input_filename, output_filename=None):
         input_filename - This is the source image you want to blur
         output_filename - This is the filename where you want to save the processed image.
     Returns:
-            The processed image dst.
+            The processed image dst. Type: ndarray
     """
     file_exists = False
     if len(sys.argv) == 2:

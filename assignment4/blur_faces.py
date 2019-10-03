@@ -13,6 +13,7 @@ def blur_sub_section(dst, sub_sec):
         sub_sec - sub section of a image
     Return:
         Returns the processed image dst. 'dst' should have sub sections blurred
+        Type: ndarray
     """
 
     sub_sec = blur(sub_sec, sub_sec)
@@ -26,22 +27,23 @@ def blur_sub_section(dst, sub_sec):
 src = cv2.imread("blurred_faces.jpg")
 dst = src.copy()
 
+#Detects every face in the picture and puts it in a list "faces"
 face_cascade = cv2.CascadeClassifier ("haarcascade_frontalface_default.xml")
 faces = face_cascade.detectMultiScale (src, scaleFactor =1.025, minNeighbors =5, minSize =(30, 30))
 
 faces = face_cascade.detectMultiScale(src, 1.1, 2, 0, (30, 30))
 
 print ("Found {} faces !".format(len(faces)))
+#If any faces was found - blur them
 if len(faces) != 0:
     for (x, y, h, w) in faces:
 
         cv2.rectangle(dst, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
+        #Use coords from list and finds a face in the picture
         face = dst[y:y+h, x:x+w, :]
 
         dst = blur_sub_section(dst, face)
         # for i in range(20):
-
-
 
 cv2.imwrite("blurred_faces.jpg", dst)
