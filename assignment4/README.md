@@ -1,6 +1,12 @@
-# How to run scripts
+# How to run and use the scripts
 
-## 4.1-3 Python implementation (6 points)
+## Programs and versions
+* Python 3.7.3
+* Numpy 1.16.4
+* Numba 0.44.1
+* OpenCV-Python 4.1.1.26
+
+## 4.1-3+5 Python implementation (6+6+6+6 points)
 How to run blur_1.py, blur_1.py and blur_3.py\
 There is two ways to run these three programs. 
 ### 1. One by one with parameter 'inputFilename'
@@ -32,11 +38,26 @@ For more options run:
 ```
 $ python blur.py --help
 ```
-
-## 3.2/3/4/5
-* If you want to run the test. You need python-pytest.
-* After you have installed pytest. You can run it like this:
+---
+## 4.6 Packaging and unit tests (6 points)
+Blur program is also availible has a package. You can install it like this:
+```
+$ pip install . --user
+```
+If you want to test if it works you can use pytest like this:
 ```
 $ pytest
 ```
-If everything works you wil see this message 'x passed in y seconds'
+---
+## 4.7 Blurring faces (5 bonus points)
+Images used is "beatles.jpg" and outputs to "blurred_faces.jpg"\
+This program take use of the package above.
+```
+from blur_package import blur
+```
+You can run the the program with:
+```
+$ python blur_faces.py
+```
+---
+<sup><sub>Never used Numpy before like me? Highly highly recommend to read this: https://www.labri.fr/perso/nrougier/from-python-to-numpy. Helped me a lot to understand how numpy works and smart ways to use it.</sub></sup>
