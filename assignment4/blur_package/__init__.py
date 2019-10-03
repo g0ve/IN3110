@@ -7,6 +7,16 @@ import sys
 # filename = "hellstrom.jpg"
 @jit
 def blur(src, dst):
+    """
+    This function is a copy of blur_3.py.
+
+    Paramters:
+        src - This is the source image. This is the image we want to blur.
+        dst - This is a copy of our source image. In this image array is
+                we do changes on.
+    Return:
+        Returns the processed image dst. 'dst' should be a blurred image of src.
+    """
     (h, w, c) = src.shape
     #Skifte på imagene.
 
@@ -46,6 +56,20 @@ def blur(src, dst):
     return dst
 
 def blur_image(input_filename, output_filename=None):
+    """
+    This is the main function. This function reads an image, call blur function.
+    And then opens the blurred image with CV2. But before that it resize the source
+    image and changes the type to uint32. After the image is processed it changes
+    dst type to uint8.
+
+    If there is not output filename given. It wont save the results.
+
+    Paramters:
+        input_filename - This is the source image you want to blur
+        output_filename - This is the filename where you want to save the processed image.
+    Returns:
+            The processed image dst.
+    """
     file_exists = False
     if len(sys.argv) == 2:
         filename = sys.argv[1]

@@ -3,6 +3,11 @@ from blur_1 import main as blur_1
 from blur_2 import main as blur_2
 from blur_3 import main as blur_3
 
+"""
+This program is a user interface. It has diffrent options, which all can be viewed with --help.
+This makes it possible to run all of the 3 implementation of image blurring.
+"""
+
 parser = argparse.ArgumentParser(description='Blur image program')
 
 parser.add_argument("-pp","--purePython", help="Blurs an image with pure python code", action='store_true')

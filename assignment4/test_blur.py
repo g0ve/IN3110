@@ -7,7 +7,8 @@ from blur_package import blur
 
 def test_max_sum_decreased():
     """
-
+    This test checks if the max value/total sum of an random array has decreased
+    after being blurred.
     """
     test_array = np.random.randint(0, 255, size=((250, 250, 3)), dtype=np.uint32)
 
@@ -19,7 +20,8 @@ def test_max_sum_decreased():
 
 def test_pixel_is_average_neighbors():
     """
-
+    This tests choose a pixel and assert that the pixel in the blurred
+    image is the average of its neighbors in the clear image(a).
     """
     test_array = np.random.randint(0, 255, size=((250, 250, 3)), dtype=np.uint32)
 

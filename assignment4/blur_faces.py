@@ -3,7 +3,17 @@ from numba import jit
 import cv2
 from blur_package import blur
 
-def blur_sub_section(sub_sec):
+def blur_sub_section(dst, sub_sec):
+    """
+    This function uses the blur_package to blur a sub section of a image. And
+    then place that subsection back in the output image.
+
+    Paramters:
+        dst - original output image
+        sub_sec - sub section of a image
+    Return:
+        Returns the processed image dst. 'dst' should have sub sections blurred
+    """
 
     sub_sec = blur(sub_sec, sub_sec)
 
@@ -13,7 +23,7 @@ def blur_sub_section(sub_sec):
 
 
 
-src = cv2.imread("beatles.jpg")
+src = cv2.imread("blurred_faces.jpg")
 dst = src.copy()
 
 face_cascade = cv2.CascadeClassifier ("haarcascade_frontalface_default.xml")
@@ -29,7 +39,9 @@ if len(faces) != 0:
 
         face = dst[y:y+h, x:x+w, :]
 
-        dst = blur_sub_section(face)
+        dst = blur_sub_section(dst, face)
+        # for i in range(20):
+
 
 
 cv2.imwrite("blurred_faces.jpg", dst)

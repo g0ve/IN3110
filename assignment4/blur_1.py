@@ -71,14 +71,18 @@ def main(inputFile, outputFile):
         outputFile - This is the filename where you want to save the processed image.
 
     """
+
     src = cv2.imread(inputFile)
     src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
 
     cv2.imshow('Unblurred image', src)
+
     src = src.astype("uint32")
     dst = src.copy()
 
+    start = time.time()
     dst = blur_image(src, dst)
+    print ('{:.3f} sec'.format(time.time()- start))
 
     dst = dst.astype ("uint8")
 
@@ -90,7 +94,6 @@ def main(inputFile, outputFile):
 
 
 if __name__ == '__main__':
-    start = time.time()
     print("__main__ is running")
     if len(sys.argv) == 2:
         filename = sys.argv[1]
@@ -100,4 +103,3 @@ if __name__ == '__main__':
         main(filename, "blurred_image.jpg")
     else:
         print("Cant find file/image. Make sure file/image is in your directory")
-    print ('{:.3f} sec'.format(time.time()- start))
