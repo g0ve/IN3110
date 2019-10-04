@@ -36,7 +36,7 @@ def blur_image_python(src, dst):
                     + src[x-1, y+1, z]
                     + src[x+1, y-1, z]
                     + src[x+1, y+1, z]) / 9
-                if x == 0:
+                elif x == 0:
                     dst[x, y, z] = (src[x, y, z]
                     + src[x, y, z]
                     + src[x+1, y, z]
@@ -46,7 +46,7 @@ def blur_image_python(src, dst):
                     + src[x, y+1, z]
                     + src[x+1, y-1, z]
                     + src[x+1, y+1, z]) / 9
-                if y == 0:
+                elif y == 0:
                     dst[x, y, z] = (src[x, y, z]
                     + src[x-1, y, z]
                     + src[x+1, y, z]
@@ -76,6 +76,7 @@ def main(inputFile, outputFile):
 
     src = cv2.imread(inputFile)
     src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
+    print(src.shape)
 
     cv2.imshow('Unblurred image', src)
 
@@ -88,7 +89,7 @@ def main(inputFile, outputFile):
 
     dst = dst.astype ("uint8")
 
-    cv2.imwrite (outputFile, dst)
+    cv2.imwrite(outputFile, dst)
     cv2.imshow('image', dst)
     cv2.waitKey(1000)
     cv2.destroyAllWindows()

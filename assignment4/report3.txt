@@ -1,0 +1,45 @@
+Numpy implementation
+ 	Image blurred: beatles.jpg
+	Dimensions: 240, 320, 3
+	Run time: 0.030 sec
+
+Numba implementation
+	Image blurred: beatles.jpg
+	Dimensions: 240, 320, 3
+	Run time: 1.649 sec
+
+--------------------------------------------------------------------------------
+
+1 day after I wrote the above, and report2. I closed my computer (didnt remove or close any windows, just put the screen down),
+and now I get completely different timings
+
+Numpy implementation
+ 	Image blurred: beatles.jpg
+	Dimensions: 240, 320, 3
+	Run time: 0.016 sec
+
+Numba implementation
+	Image blurred: beatles.jpg
+	Dimensions: 240, 320, 3
+	Run time: 0.604 sec
+
+But all in all numpy seems to be better than numba. I have tried different declerations
+for jit like nopython=True and etc. I found it weird beacause in theory and what we have
+learned numba should be faster(?). But it way just be because I run Windows 10.
+
+Numpy vs Numba
+
+Advantage of using numba is at runtime numba can figure out all temporaries that
+are not needed, and optimize them away. Numba can compile the program as a whole,
+where numpy on the other hand calls small block that have been pre-compiled.
+
+Temporaries can be the reason why my numba code isnt running has well has it should.
+But it may just be my hardware and software. Havent looked to much into it.
+
+Disadvantage of using numpy:
+    - Doesnt seem like you can use libaries like "time" and "sys" in a @jit function
+        I got alot of warnings and erros. Its probally possible, but seemed like
+        a lot of work.
+    - If you dont know how numba works properly its easy to still make a lot of
+        temporaries so you dont take the advantage of possibilities with numba.
+In short Numba isnt always has magical and wonderful has it seems to be.

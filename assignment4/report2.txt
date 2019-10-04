@@ -1,0 +1,12 @@
+Python implementation
+ 	Image blurred: beatles.jpg
+	Dimensions: 240, 320, 3
+	Run time: 2.083 sec
+
+Numpy implementation
+	Image blurred: beatles.jpg
+	Dimensions: 240, 320, 3
+	Run time: 0.030 sec
+
+The run time using numpy is almost 70x better then using pure python.
+I only track the time used by the blur function and the call.

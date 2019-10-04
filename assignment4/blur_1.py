@@ -74,7 +74,8 @@ def main(inputFile, outputFile):
 
     src = cv2.imread(inputFile)
     src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
-
+    print(src.shape)
+    
     cv2.imshow('Unblurred image', src)
 
     src = src.astype("uint32")

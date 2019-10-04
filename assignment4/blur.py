@@ -22,6 +22,7 @@ if args.purePython:
     blur_1(args.input, args.output)
 
 elif args.numpy:
+    print(args.output)
     blur_2(args.input, args.output)
 
 elif args.numba:
