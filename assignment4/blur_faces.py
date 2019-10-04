@@ -24,7 +24,10 @@ def blur_sub_section(dst, sub_sec):
 
 
 
-src = cv2.imread("blurred_faces.jpg")
+# src = cv2.imread("blurred_faces.jpg")
+src = cv2.imread("beatles.jpg")
+cv2.imshow('Source image', src)
+
 dst = src.copy()
 
 #Detects every face in the picture and puts it in a list "faces"
@@ -43,7 +46,10 @@ if len(faces) != 0:
         #Use coords from list and finds a face in the picture
         face = dst[y:y+h, x:x+w, :]
 
-        dst = blur_sub_section(dst, face)
         # for i in range(20):
+        dst = blur_sub_section(dst, face)
 
 cv2.imwrite("blurred_faces.jpg", dst)
+cv2.imshow('Blurred image', dst)
+cv2.waitKey(5000)
+cv2.destroyAllWindows()

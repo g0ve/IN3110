@@ -59,7 +59,7 @@ def main(inputFile, outputFile):
     src = cv2.resize(src, (0, 0), fx=0.5, fy=0.5)
     print(src.shape)
 
-    cv2.imshow('Unblurred image', src)
+    cv2.imshow('Source image', src)
 
     src = src.astype("uint32")
     dst = src.copy()
@@ -71,8 +71,8 @@ def main(inputFile, outputFile):
     dst = dst.astype ("uint8")
 
     cv2.imwrite (outputFile, dst)
-    cv2.imshow('image', dst)
-    cv2.waitKey(1000)
+    cv2.imshow('Blurred image', dst)
+    cv2.waitKey(5000)
     cv2.destroyAllWindows()
 
 
