@@ -3,7 +3,7 @@ import re
 import sys
 
 def main(syntax_file, theme_file, output_file):
-    input_file = "hello.ny"
+    input_file = "demo.py"
     regexTheme = r"(.*): (\d*;\d*)"
     lstTheme = []
     dictTheme = {}
@@ -32,21 +32,13 @@ def main(syntax_file, theme_file, output_file):
             start_code = "\033[{}m".format(color_sequence)
             end_code = "\033[0m"
 
-            txtColored = re.sub(regex, start_code + r"\1" + end_code, txtInput)
-            print(txtColored)
+            txtInput = re.sub(regex, start_code + r"\1" + end_code, txtInput)
 
-            oFile.write(txtColored)
+        print(txtInput)
 
+        oFile.write(txtInput)
 
-            print("\nText has been colored o/" )
-
-
-
-
-
-
-
-
+        print("\nText has been colored o/" )
 
 
 if len(sys.argv) == 4:
