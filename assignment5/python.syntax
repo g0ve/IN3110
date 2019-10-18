@@ -1,10 +1,10 @@
 "(#.*)": comment
-"(def\s)(?:.*:)": function
-"(class\s)(?:.*:)": class
-"(([\"\']{3}.*?[\"\']{3})|(\'.*?\'|\".*?\"))": strings
+"(def\s)(?::)": function
+"(class\s)(?::)": class
+"([\"\']{3}.*?[\"\']{3})|(\'.*?\'|\".*?\")": strings
 "((import\s)(?:\w*\s)|(from\s)(?:\w*))": import
 "(\bNone|True|False\b)": statements
-"((try)|(except )?(?:\w*))(?::)": try_except
-"(\bfor\b\s)(?:\w*)(\sin\s)(?:range|\w+(?::))": for_loops
-"(\bwhile\b\s)(?:\w*|\w*\s*(?:==|!=|>|<|>=|<=)\s*\w*)(?::)": while_loops
-"(\b(if|elif|else)\b\s)(?:\w*|\w*\s*(?:==|!=|>|<|>=|<=)\s*\w*)(?::)": if_elif_else
+"((try)|(except)?(?:.*\w*))(?:.*:)": try_except
+"(\bfor\b\s)(?:.*\w)(\sin\s)(?:.*range|\w+(?:.*:))": for_loops
+"(\bwhile\b\s)(?:.*\w*|\w*\s*(?:==|!=|>|<|>=|<=)\s*\w*)(?:.*:)": while_loops
+"(\b(if|elif|else)\b\s)(?:.*\w*|\w*\s*(?:==|!=|>|<|>=|<=)\s*\w*)(?:.*:)": if_elif_else
