@@ -3,7 +3,7 @@ import re
 import sys
 
 def main(syntax_file, theme_file, output_file):
-    input_file = "demo.py"
+    input_file = "demo_java.java"
     regexTheme = r"(.*): (\d*;\d*)"
     lstTheme = []
     dictTheme = {}
