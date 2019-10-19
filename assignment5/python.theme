@@ -1,9 +1,9 @@
-comment: 0;37
-function: 0;91
-class: 0;93
-strings: 0;92
-import: 0;36
-statements: 0;34
+comment: 0;90
+function: 0;33
+class: 0;33
+strings: 0;32
+import: 0;35
+statements: 0;31
 try_except: 0;95
 for_loops: 0;95
 while_loops: 0;95

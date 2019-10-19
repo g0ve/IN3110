@@ -1,0 +1,10 @@
+"(#.*)": comment
+"(def\s)": function
+"(class\s)": class
+"(([\'\"]{3}(?:\n|.)*?[\'\"]{3})|(\'.*?\'|\".*?\"))": strings
+"((import\s)|(from\s))": import
+"(\bNone|True|False\b)": statements
+"((try)|(except))": try_except
+"(for)": for_loops
+"(while)": while_loops
+"((if|elif|else))": if_elif_else
