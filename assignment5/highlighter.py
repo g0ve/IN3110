@@ -9,8 +9,7 @@ def open_syntax(filename):
         lstSyntax = re.findall(regexSyntax, txtSyntax)
     return lstSyntax
 
-def main(syntax_file, theme_file, output_file):
-    input_file = "demo.py"
+def main(syntax_file, theme_file, sourcefile_to_color):
     regexTheme = r"(.*): (\d*;\d*)"
     lstTheme = []
     dictTheme = {}
@@ -25,9 +24,8 @@ def main(syntax_file, theme_file, output_file):
             dictTheme[name] = color_sequence
 
 
-    with open(input_file, 'r') as iFile:
-        txtInput = iFile.read()
-    with open(output_file, 'w') as oFile:
+    with open(sourcefile_to_color, 'r') as srcFile:
+        txtSource = srcFile.read()
         for syntax in lstSyntax:
             regex = "(" + syntax[0] + ")"
             name = syntax[1]
@@ -35,12 +33,9 @@ def main(syntax_file, theme_file, output_file):
             start_code = "\033[{}m".format(color_sequence)
             end_code = "\033[0m"
 
-            txtInput = re.sub(regex, start_code + r"\1" + end_code, txtInput)
+            txtSource = re.sub(regex, start_code + r"\1" + end_code, txtSource)
 
-        print(txtInput)
-
-        oFile.write(txtInput)
-
+        print(txtSource)
         print("\nText has been colored o/" )
 
 if __name__ == '__main__':
