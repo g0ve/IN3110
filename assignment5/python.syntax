@@ -1,7 +1,7 @@
 "(#.*)": comment
 "(def\s)(?:.*:)": function
 "(class\s)(?:\w*:)": class
-"(([\'\"]{3}(?:\n|.)*?[\'\"]{3})|(\'.*?\'|\".*?\"))": strings
+"([\'\"]{3}(?:\n|.)*?[\'\"]{3})|(\'.*?\'|\".*?\")": strings
 "((import\s)(?:\w*\s)|(from\s)(?:\w*))": import
 "(\bNone|True|False\b)": statements
 "(try|except)\s?(?:\w+\s*)?(?::)": try_except

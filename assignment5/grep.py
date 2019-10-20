@@ -1,9 +1,16 @@
 import sys
 import argparse
 import re
+import glob
+import highlighter
 
-def main():
-    
+def main(syntax_file, input_file, flag):
+    lstSyntax = highlighter.open_syntax(syntax_file)
+
+    with open(input_file, 'r') as iFile:
+        for line in iFile:
+            for syntax in lstSyntax:
+                matches=re.findall(syntax[0],line)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='UNIX utility knockkoff')

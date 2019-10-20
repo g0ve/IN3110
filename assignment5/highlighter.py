@@ -10,7 +10,7 @@ def open_syntax(filename):
     return lstSyntax
 
 def main(syntax_file, theme_file, output_file):
-    input_file = "demo_java.java"
+    input_file = "demo.py"
     regexTheme = r"(.*): (\d*;\d*)"
     lstTheme = []
     dictTheme = {}
