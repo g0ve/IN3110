@@ -2,17 +2,20 @@ import glob
 import re
 import sys
 
+def open_syntax(filename):
+    regexSyntax = r'"(.*)": (.*)'
+    with open(filename, 'r') as sFile:
+        txtSyntax = sFile.read()
+        lstSyntax = re.findall(regexSyntax, txtSyntax)
+    return lstSyntax
+
 def main(syntax_file, theme_file, output_file):
     input_file = "demo_java.java"
     regexTheme = r"(.*): (\d*;\d*)"
     lstTheme = []
     dictTheme = {}
-    regexSyntax = r'"(.*)": (.*)'
-    lstSyntax = []
+    lstSyntax = open_syntax(syntax_file)
 
-    with open(syntax_file, 'r') as sFile:
-        txtSyntax = sFile.read()
-        lstSyntax = re.findall(regexSyntax, txtSyntax)
 
     with open(theme_file, 'r') as tFile:
         txtTheme = tFile.read()
@@ -40,13 +43,14 @@ def main(syntax_file, theme_file, output_file):
 
         print("\nText has been colored o/" )
 
+if __name__ == '__main__':
+    if len(sys.argv) == 4:
+        lstFiles = glob.glob(sys.argv[1])
+        lstFiles.append(glob.glob(sys.argv[2]))
+        lstFiles.append(glob.glob(sys.argv[3]))
+    if all(lstFiles):
+        print("Found all files :)\n")
+        main(sys.argv[1], sys.argv[2], sys.argv[3])
+    else:
+        print("Cant find file/image. Make sure file/image is in your directory")
 
-if len(sys.argv) == 4:
-    lstFiles = glob.glob(sys.argv[1])
-    lstFiles.append(glob.glob(sys.argv[2]))
-    lstFiles.append(glob.glob(sys.argv[3]))
-if all(lstFiles):
-    print("Found all files :)\n")
-    main(sys.argv[1], sys.argv[2], sys.argv[3])
-else:
-    print("Cant find file/image. Make sure file/image is in your directory")

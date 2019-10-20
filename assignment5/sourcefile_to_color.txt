@@ -4,45 +4,46 @@
 [0;90m//This is my highlighter for Java code[0m
 
 [0;35mpublic class MyClass[0m {
-  [0;36mstatic void myMethod()[0m {
-    System.out.println([0;32m"I just got executed!"[0m);
+	[0;36mstatic void myMethod()[0m {
+		System.out.println([0;32m"I just got executed!"[0m);
 
-	boolean isJavaFun = [0;31mtrue[0m;
-	boolean isFishTasty = [0;31mfalse[0m;
+		boolean isJavaFun = [0;31mtrue[0m;
+		boolean isFishTasty = [0;31mfalse[0m;
 
-[0;36m	[0;35mfor (int i = 0; i < 10; i++)[0m[0m {
- 	[0;36m	[0;35mif (i == 4)[0m[0m {
-    		[0;35mcontinue;[0m
-  		}
+	[0;36m	[0;35mfor (int i = 0; i < 10; i++)[0m[0m {
+		[0;36m	[0;35mif (i == 4)[0m[0m {
+				[0;31mcontinue;[0m
+			}
+		}
+
+	[0;36m	[0;35mfor (int i = 0; i < 10; i++)[0m[0m {
+		[0;36m	[0;35mif (i == 4)[0m[0m {
+				[0;31mbreak;[0m
+			}
+			System.out.println(i);
+		}
+
+		String[] cars = {[0;32m"Volvo"[0m, [0;32m"BMW"[0m, [0;32m"Ford"[0m, [0;32m"Mazda"[0m};
+	[0;36m	for (String i : cars)[0m {
+			System.out.println(i);
+		}
+
+		int i = 0;
+	[0;36m	[0;35mwhile (i < 5)[0m[0m {
+			System.out.println(i);
+			i++;
+		}
+
+		int time = 22;
+	[0;36m	[0;35mif (time < 10)[0m[0m {
+			System.out.println([0;32m"Good morning."[0m);
+		} [0;36m[0;35melse if (time < 20)[0m[0m {
+			System.out.println([0;32m"Good day."[0m);
+		} [0;35melse[0m {
+			System.out.println([0;32m"Good evening."[0m);
+		}
+
+		[0;36mpublic static void main(String[] args)[0m {
+			myMethod();
+		}
 	}
-
-[0;36m	[0;35mfor (int i = 0; i < 10; i++)[0m[0m {
-	[0;36m	[0;35mif (i == 4)[0m[0m {
-    		[0;35mbreak;[0m
- 		}
-  		System.out.println(i);
-	}
-
-	String[] cars = {[0;32m"Volvo"[0m, [0;32m"BMW"[0m, [0;32m"Ford"[0m, [0;32m"Mazda"[0m};
-[0;36m	for (String i : cars)[0m {
-		System.out.println(i);
-	}
-
-	int i = 0;
-[0;36m	[0;35mwhile (i < 5)[0m[0m {
-  		System.out.println(i);
-  		i++;
-	}
-
-	int time = 22;
-[0;36m	[0;35mif (time < 10)[0m[0m {
-  		System.out.println([0;32m"Good morning."[0m);
-	} [0;36m[0;35melse if (time < 20)[0m[0m {
-  		System.out.println([0;32m"Good day."[0m);
-	} [0;35melse[0m {
-  		System.out.println([0;32m"Good evening."[0m);
-	}
-  [0;36mpublic static void main(String[] args)[0m {
-    myMethod();
-  }
-}

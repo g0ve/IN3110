@@ -4,7 +4,7 @@ class: 0;35
 strings: 0;32
 import: 0;93
 statements: 0;31
-break_continue: 0;35
+break_continue: 0;31
 for_loops: 0;35
 while_loops: 0;35
 if_elif_else: 0;35
