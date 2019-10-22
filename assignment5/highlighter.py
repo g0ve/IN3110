@@ -8,11 +8,11 @@ def color_text(syntax, dictTheme, txtSource):
         color_sequence = dictTheme
     else:
         color_sequence = dictTheme[name]
-        start_code = "\033[{}m".format(color_sequence)
-        end_code = "\033[0m"
 
-        print(color_sequence)
-        txtSource = re.sub(regex, start_code + r"\1" + end_code, txtSource)
+    start_code = "\033[{}m".format(color_sequence)
+    end_code = "\033[0m"
+
+    txtSource = re.sub(regex, start_code + r"\1" + end_code, txtSource)
     return txtSource
 
 def open_syntax(filename):

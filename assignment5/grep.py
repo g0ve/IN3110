@@ -8,7 +8,6 @@ def main(syntax_file, input_file, flag):
     lstSyntax = highlighter.open_syntax(syntax_file)
     i = 0
     rainbow = [91, 93, 92, 94, 95]
-
     with open(input_file, 'r') as iFile:
         for line in iFile:
             for syntax in lstSyntax:
@@ -16,6 +15,11 @@ def main(syntax_file, input_file, flag):
                 if(matches):
                     if(args.highlight):
                         colored_line = highlighter.color_text(syntax, rainbow[i], line)
+
+                        if(i < len(rainbow)-1):
+                            i += 1
+                        else:
+                            i = 0
                         print(colored_line)
                     else:
                         print(line)
