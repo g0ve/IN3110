@@ -1,6 +1,21 @@
 import glob
 import re
 import sys
+def color_text(lstSyntax, dictTheme, txtSource):
+    for syntax in lstSyntax:
+        regex = "(" + syntax[0] + ")"
+        name = syntax[1]
+        if(type(dictTheme) is int):
+            color_sequence = dictTheme
+        else:
+            color_sequence = dictTheme[name]
+        start_code = "\033[{}m".format(color_sequence)
+        end_code = "\033[0m"
+
+        txtSource = re.sub(regex, start_code + r"\1" + end_code, txtSource)
+
+    print(txtSource)
+    print("\nText has been colored o/" )
 
 def open_syntax(filename):
     regexSyntax = r'"(.*)": (.*)'
@@ -26,17 +41,7 @@ def main(syntax_file, theme_file, sourcefile_to_color):
 
     with open(sourcefile_to_color, 'r') as srcFile:
         txtSource = srcFile.read()
-        for syntax in lstSyntax:
-            regex = "(" + syntax[0] + ")"
-            name = syntax[1]
-            color_sequence = dictTheme[name]
-            start_code = "\033[{}m".format(color_sequence)
-            end_code = "\033[0m"
-
-            txtSource = re.sub(regex, start_code + r"\1" + end_code, txtSource)
-
-        print(txtSource)
-        print("\nText has been colored o/" )
+        color_text(lstSyntax, dictTheme, txtSource)
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
