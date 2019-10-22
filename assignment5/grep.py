@@ -6,11 +6,20 @@ import highlighter
 
 def main(syntax_file, input_file, flag):
     lstSyntax = highlighter.open_syntax(syntax_file)
+    i = 0
+    rainbow = [91, 93, 92, 94, 95]
 
     with open(input_file, 'r') as iFile:
         for line in iFile:
             for syntax in lstSyntax:
-                matches=re.findall(syntax[0],line)
+                matches = re.findall(syntax[0],line)
+                if(matches):
+                    if(args.highlight):
+                        colored_line = highlighter.color_text(syntax, rainbow[i], line)
+                        print(colored_line)
+                    else:
+                        print(line)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='UNIX utility knockkoff')
