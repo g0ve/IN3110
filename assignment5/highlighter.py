@@ -2,7 +2,7 @@ import glob
 import re
 import sys
 def color_text(syntax, dictTheme, txtSource):
-    regex = "(" + syntax[0] + ")"
+    regex = syntax[0]
     name = syntax[1]
     if(type(dictTheme) is int):
         color_sequence = dictTheme
@@ -11,8 +11,9 @@ def color_text(syntax, dictTheme, txtSource):
 
     start_code = "\033[{}m".format(color_sequence)
     end_code = "\033[0m"
+    finish_code = start_code + r"\1" + end_code
+    txtSource = re.sub(regex, finish_code, txtSource)
 
-    txtSource = re.sub(regex, start_code + r"\1" + end_code, txtSource)
     return txtSource
 
 def open_syntax(filename):

@@ -1,46 +1,20 @@
-[0;96mimport os
-[0m[0;96mimport sys [0m[0;96mfrom os[0m
-[0;90m#Dette er en demo[0m
-[0;4mclass MyClass:[0m
-    x = 5
-    print ([0;92m'Hello, world!'[0m)
+Found all files :)
 
-    fruits = [[0;92m"apple"[0m, [0;92m"banana"[0m, [0;92m"cherry"[0m]
-    [0;96mfor x in fruits:[0m
-        print(x)
+[0;42m\1[0m
+(\+\s\w*)
+[0;41m\1[0m
+(\-\s\w*)
+[0;39m\1[0m
+(0\s\w*)
+[0;41m- A[0m
+[0;39m0 B[0m
+[0;42m+ Hell[0m
+[0;41m- Hellstrom[0m
+[0;39m0 D[0m
+[0;39m0 E[0m
+[0;39m0 F[0m
+[0;42m+ G[0m
+[0;41m- H[0m
 
-    i = 1
-    [0;96mwhile i < 6:[0m
-        print(i)
-        i += 1
 
-    [0;33mdef my_function():[0m
-        return [0;91mTrue[0m
-
-
-    [0;96mtry:[0m
-        print(x)
-    [0;96mexcept NameError:[0m
-        print([0;92m"Variable x is not defined"[0m)
-    [0;96mexcept:[0m
-        print([0;92m"Something else went wrong"[0m)
-
-    [0;96mif b > a:[0m
-        print([0;92m"b is greater than a"[0m)
-    [0;96melif a == b:[0m
-        print([0;92m"a and b are equal"[0m)
-    [0;96melse:[0m
-        print([0;92m"a is greater than b"[0m)
-
-    
-    a = [0;92m"""Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt
-    ut labore et dolore magna aliqua."""[0m
-    print(a)
-
-    a = [0;92m'''Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt
-    ut labore et dolore magna aliqua.'''[0m
-    print(a)
+Text has been colored o/
