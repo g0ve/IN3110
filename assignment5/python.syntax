@@ -6,5 +6,6 @@
 "(\bNone\b|\bTrue\b|\bFalse\b)": statements
 "(\btry\b|\bexcept\b(?=\s?(?:\w+\s*)?(?::)))": try_except
 "(\bfor\b(?=\s?(?:\w*)\sin\s(?:range|\w+(?::))))": for_loops
+"(\bin\b(?=\srange|\s\w+(?::)))": in
 "(\bwhile\b(?=\s?(?:\w+\s*|\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+)?(?::)))": while_loops
 "(if|elif|else(?=\s?(?:\w+\s*|\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+)?(?::)))": if_elif_else

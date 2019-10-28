@@ -6,5 +6,6 @@ import: 0;35
 statements: 0;31
 try_except: 0;95
 for_loops: 0;95
+in: 0;95
 while_loops: 0;95
 if_elif_else: 0;95
