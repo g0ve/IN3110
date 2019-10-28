@@ -10,6 +10,7 @@
 ```
 $ python3
 ```
+![naython_example](examplesImages/naython_example.PNG)
 
 ## 5.2 Python syntax (5 points + 5 bonus points)
 
