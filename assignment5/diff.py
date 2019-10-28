@@ -1,6 +1,5 @@
 import sys
 import glob
-import itertools
 
 
 def main(input_file, output_file):
