@@ -71,3 +71,65 @@ $ python3 highlighter.py diff.syntax diff.theme diff_output.txt
 Diff Highlighter Example\
 <img src="examplesImages/diff_higlighter_example.PNG" alt="Diff Example 2" width="200">
 
+## Regex expressions
+I have used the same essential regex functions i both Python and Java syntax. I will therefor only use regex expressions from Python.syntax as example. Many of my expressions use the same references in the functions aswell. I therefor have handpicked a few functions to explain.
+
+If you want a better explanation I recommend using this site: https://regex101.com/
+
+
+### Function
+```
+Regex function: (\bdef\b(?=(?:\s\w*\(\w*\)):))
+```
+* 1st Capturing Group ```(\bdef\b(?=(?:\s\w*\(\w*\)):))```
+  * \b assert position at a word boundary: ```(^\w|\w$|\W\w|\w\W)```
+  * def matches the characters def literally (case sensitive)
+  * Positive Lookahead ```(?=(?:\s\w*\(\w*\)):)```
+    * Non-capturing group ```(?:\s\w*\(\w*\))```
+    * \s matches any whitespace character (equal to [\r\n\t\f\v ])
+    * \w* matches any word character (equal to [a-zA-Z0-9_])
+    * \( and \) and : matches the character (, ) and : literally (case sensitive)
+### Strings
+```
+Regex function: ([\'\"]{3}(?:\n|.)*?[\'\"]{3}|\'.*?\'|\".*?\")
+```
+* 1st Capturing Group ```([\'\"]{3}(?:\n|.)*?[\'\"]{3}|\'.*?\'|\".*?\")```
+  * 1st Alternative ```[\'\"]{3}(?:\n|.)*?[\'\"]{3}```
+    * Match a single character present in the list below ```[\'\"]{3}```
+      * {3} Quantifier — Matches exactly 3 times
+      * \' or \" matches the character ' or " literally (case sensitive)
+    * Non-capturing group ```(?:\n|.)*?```
+      * *? Quantifier — Matches between zero and unlimited times, as few times as possible, expanding             as needed (lazy)
+        * 1st Alternative \n
+          * \n matches a line-feed (newline) character (ASCII 10)
+        * 2nd Alternative .
+          * . matches any character (except for line terminators)
+  * 2nd and 3nd Alternative \'.*?\' and \".*?\"
+    * \' or \" matches the character ' or " literally (case sensitive)
+    * .*? matches any character (except for line terminators)
+      * *? Quantifier — Matches between zero and unlimited times, as few times as possible, expanding   as needed (lazy)
+    * \' or \" matches the character ' or " literally (case sensitive)
+    
+### While-loops
+```
+Regex function: (\bwhile\b(?=\s?(?:\w+\s*|\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+)?(?::)))
+```
+* 1st Capturing Group ```(\bwhile\b(?=\s?(?:\w+\s*|\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+)?(?::)))```
+  * \b assert position at a word boundary: (^\w|\w$|\W\w|\w\W)
+  * while matches the characters while literally (case sensitive)
+  * Positive Lookahead ```(?=\s?(?:\w+\s*|\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+)?(?::))```
+    * \s? matches any whitespace character (equal to [\r\n\t\f\v ])
+    * ? Quantifier — Matches between zero and one times, as many times as possible, giving back as needed (greedy)
+    * Non-capturing group ```(?:\w+\s*|\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+)?```
+      * 1st Alternative ```\w+\s*```
+        * \w+ matches any word character (equal to [a-zA-Z0-9_])
+        * \s* matches any whitespace character (equal to [\r\n\t\f\v ])
+      * 2nd Alternative ```\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+```
+        * \w+ matches any word character (equal to [a-zA-Z0-9_])
+        * \s* matches any whitespace character (equal to [\r\n\t\f\v ])
+          * Non-capturing group ```(?:==|!=|<>|>|<|>=|<=)```
+            * 1st Alternative ==
+            * 2nd Alternative !=
+            * ...
+    * Non-capturing group ```(?::)```
+      * : matches the character : literally (case sensitive)
