@@ -2,7 +2,6 @@
 
 ## Programs and versions
 * Python 3.7.3
-* OpenCV-Python 4.1.1.26
 * Ubuntu 18.04.2 LTS
 
 ## 5.1  Syntax highlighting (7 points)
