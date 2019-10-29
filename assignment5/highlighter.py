@@ -2,6 +2,18 @@ import glob
 import re
 import sys
 def color_text(syntax, dictTheme, txtSource):
+    """
+    This function take a syntax, dict of themes or theme code and colors matched
+    group 1 in regex with correct color from theme in the source file given.
+
+    Paramters:
+        syntax - A regex expressions + name
+        dictTheme - This is either a dict with themes or just a color sequence
+        txtSource - source text you want to color
+
+    Return:
+        txtSource - this is the source file colored
+    """
     regex = syntax[0]
     name = syntax[1]
     if(type(dictTheme) is int):
@@ -17,6 +29,16 @@ def color_text(syntax, dictTheme, txtSource):
     return txtSource
 
 def open_syntax(filename):
+    """
+    This function opens a file containing syntax. After opening the file it finds
+    all syntax in that file with a regex expression and puts it all in a list
+
+    Paramters:
+        filename - filename containing syntax
+
+    Return:
+        lstSyntax - returns the list with all syntax in given file
+    """
     regexSyntax = r'"(.*)": (.*)'
     with open(filename, 'r') as sFile:
         txtSyntax = sFile.read()
@@ -24,6 +46,20 @@ def open_syntax(filename):
     return lstSyntax
 
 def main(syntax_file, theme_file, sourcefile_to_color):
+    """
+    This function opens a file containing themes, and opens the source file you want to color.
+    After that it finds all themes in the theme file and puts it in a dict.
+    When that is done it calls the color_text function.
+    and prints out the colored file + a message to user.
+
+    Paramters:
+        syntax_file - File containing all regex expressions
+        theme_file - File containing all themes
+        sourcefile_to_color - source file you want to color
+
+    Return:
+        None
+    """
     regexTheme = r"(.*): (\d*;\d*)"
     lstTheme = []
     dictTheme = {}

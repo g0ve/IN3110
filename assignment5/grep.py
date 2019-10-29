@@ -5,6 +5,21 @@ import glob
 import highlighter
 
 def main(syntax_file, input_file, flag):
+    """
+    This function goes throught a input text file line by line. It also goes throught
+    a file with regex expressions. And if a word in a line match one of the expressions
+    the line will be printed.
+
+    But if a  flag (--highlighter) is given then highlight the matched word and print line.
+
+    Paramters:
+        syntax_file - File containing all regex expressions
+        input_file - Text file where we find a match
+        flag - A flag, if --highlight is true or not
+
+    Return:
+        None
+    """
     lstSyntax = highlighter.open_syntax(syntax_file)
     i = 0
     rainbow = [91, 93, 92, 94, 95]
@@ -13,7 +28,7 @@ def main(syntax_file, input_file, flag):
             for syntax in lstSyntax:
                 matches = re.findall(syntax[0],line)
                 if(matches):
-                    if(args.highlight):
+                    if(flag):
                         colored_line = highlighter.color_text(syntax, rainbow[i], line)
 
                         if(i < len(rainbow)-1):

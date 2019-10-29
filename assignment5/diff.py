@@ -3,7 +3,19 @@ import glob
 
 
 def main(input_file, output_file):
+    """
+    This function finds added, deleted and similarities of an input and output file.
+    If a line/word is added the function puts a '+' infront.
+    If deleted puts a '-'
+    And if its a similariti put a 0 infront
 
+    Paramters:
+        input_file - This is the original text file
+        output_file - This is the modified text file
+
+    Return:
+        None
+    """
     with open(input_file, 'r') as iFile:
         ogVersion = iFile.read().split('\n')
     with open(output_file, 'r') as oFile:
