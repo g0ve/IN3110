@@ -5,7 +5,7 @@
 * Ubuntu 18.04.2 LTS
 
 ## 5.1  Syntax highlighting (7 points)
-You can run the the program with:
+You can run this program with:
 ```
 $ python3 highlighter.py naython.syntax naython.theme hello.ny
 ```
@@ -16,7 +16,7 @@ Color themes:
 * python.theme
 * python2.theme
 
-You can run the the program with:
+You can run this program with:
 ```
 $ python3 highlighter.py [python.syntax, python2.syntax] python2.theme python_demo.py
 ```
@@ -31,7 +31,7 @@ Color themes:
 * java.theme
 * java2.theme
 
-You can run the the program with:
+You can run this program with:
 ```
 $ python3 highlighter.py java.syntax java.theme java_demo.java
 ```
@@ -43,7 +43,7 @@ Java example (java.theme)|  Java example 2 (java2.theme)
 Flags:
 * --highlighter
 
-You can run the the program with:
+You can run this program with:
 ```
 $ python3 grep.py grep.syntax grep_demo.txt [--highlighter]
 ```
@@ -52,7 +52,7 @@ grep example |  grep example + highlighter flag
 <img src="examplesImages/grep_example.PNG" alt="Grep Example" width="200"> | <img src="examplesImages/grep_highlighter_example.PNG" alt="Grep Example 2" width="200">
 
 ## 5.5 superdiff (10 points)
-You can run the the program with:
+You can run this program with:
 ```
 $ python3 diff.py diff1.txt diff2.txt
 ```
