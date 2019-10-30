@@ -1,10 +1,10 @@
 "(\/\/.*)": comment
-"(.*(\(\))(\s\{|\{|;)$)": method
+"((public|protected|private|static)((.*(\(\))(?=\s\{|\{|;))))": method
 "((?:\bpublic|private\b)\s(?:class)\s(?:\w*(?=\s\{|\{)))": class
 "(\".*?\")": strings
 "(\bimport\b(?=\s(?:\w*[.]){0,}))": import
 "(\btrue|false\b)(?=;)": statements
 "(\bbreak|continue\b)(?=;)": break_continue
-"(\bfor\b)(?=\s\((?:.*;.*;.*)\)(?:\s\{|\{))": for_loops
+"(\bfor\b)(?=\s\((?:(?:.*;.*;.*)|(?:\w*\s\w*\s:\s\w*))\)(?:\s\{|\{))": for_loops
 "(\bwhile\b\s)(?=\(\w+\s*\)|\(\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+\))": while_loops
 "(\bif\b|\belse if\b|\belse\b)(?=\s\(\w+\s*\)\s\{|\s\(\w+\s*(?:==|!=|<>|>|<|>=|<=)\s*\w+\)\s\{|\s\{)": if_elif_else
