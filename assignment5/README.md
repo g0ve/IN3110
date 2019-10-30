@@ -27,6 +27,8 @@ Python example (python.theme)|  Python example 2 (python2.theme)
 
 
 ## 5.3 Syntax for your favorite language (Up to 5 bonus points)
+<sub>I really dont have a favorite language...But Java was an example in the assignement, and its the language I have the most experience with after Python. So it seemed natural for me to choose Java.<sub>
+ 
 Color themes:
 * java.theme
 * java2.theme
@@ -40,6 +42,8 @@ Java example (java.theme)|  Java example 2 (java2.theme)
 <img src="examplesImages/java_example.PNG" alt="Java Example" width="350"> | <img src="examplesImages/java2_example.PNG" alt="Java Example 2" width="350">
 
 ## 5.4 grep (5 points + 5 bonus points)
+<sub>My program will print a line twice if 2 regex expressions are match on that line. I didnt find any spesification around it in the assignement text. So i didnt choose to do anything about it.<sub>
+
 Flags:
 * --highlighter
 
